@@ -192,7 +192,7 @@ function endGame(result){
 };
 
 function restart(mode){
-	if(mode){
+	if(mode == "confirm"){
 		var option = confirm("Você tem certeza que quer reiniciar a partida?");
 		if(!option){return false;}
 	}
