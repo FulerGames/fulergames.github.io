@@ -132,7 +132,25 @@ function endMission(){
 	setClock();
 	if(localStorage.omg_audio != "off"){end.play();}
 	
-	alert("Acabou a missão!");
+	//alert("Acabou a missão!");
+	let fail = prompt("Acabou a missão! Quantas falhas tiveram na missão?");
+	fail = Number.parseInt(fail);
+
+	document.querySelectorAll('.life').forEach(element => {
+		if(fail > 0 && element.src.includes("life")){
+			element.click();
+			fail--;
+		}
+	});
+	
+	if(fail > 0){
+		endGame("💥 DERROTA! 💥");
+	}
+	else{
+		if(document.querySelectorAll('.done').length == 10){
+			endGame("🎉 VITÓRIA! 🎉");
+		}
+	}
 };
 
 function panic(time){
@@ -163,4 +181,20 @@ function audioStop(){
 	siren.pause();
 	alarm.pause();
 	end.pause();
+};
+
+function endGame(result){
+	document.getElementById("timer").innerText = result;
+	document.getElementById("timer").removeAttribute("id");
+	document.getElementById("start").innerText = "🔄 Reiniciar 🔄";
+	document.getElementById("start").onclick = restart;
+	document.getElementById("start").removeAttribute("id");	
+};
+
+function restart(mode){
+	if(mode){
+		var option = confirm("Você tem certeza que quer reiniciar a partida?");
+		if(!option){return false;}
+	}
+	window.location.reload();
 };

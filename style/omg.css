@@ -65,10 +65,21 @@ button {
 	height: 5rem;
 }
 
-#audio {
-	position: absolute;
-	top: 0;
+.container{
+	position: relative;
+}
+
+#audio{
 	right: 0;
+}
+
+#restart{
+	left: 0;
+}
+
+.config{
+	top: 0;
+	position: absolute;
 	width: 2.5rem;
 	height: 2.5rem;
 }
