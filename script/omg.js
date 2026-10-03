@@ -132,25 +132,7 @@ function endMission(){
 	setClock();
 	if(localStorage.omg_audio != "off"){end.play();}
 	
-	//alert("Acabou a missão!");
-	let fail = prompt("Acabou a missão! Quantas falhas tiveram na missão?");
-	fail = Number.parseInt(fail);
-
-	document.querySelectorAll('.life').forEach(element => {
-		if(fail > 0 && element.src.includes("life")){
-			element.click();
-			fail--;
-		}
-	});
-	
-	if(fail > 0){
-		endGame("💥 DERROTA! 💥");
-	}
-	else{
-		if(document.querySelectorAll('.done').length == 10){
-			endGame("🎉 VITÓRIA! 🎉");
-		}
-	}
+	setTimeout(checkEnd, 100);
 };
 
 function panic(time){
@@ -181,6 +163,28 @@ function audioStop(){
 	siren.pause();
 	alarm.pause();
 	end.pause();
+};
+
+function checkEnd(){
+	//alert("Acabou a missão!");
+	let fail = prompt("Acabou a missão! Quantas falhas tiveram na missão?");
+	fail = Number.parseInt(fail);
+	
+	document.querySelectorAll('.life').forEach(element => {
+		if(fail > 0 && element.src.includes("life")){
+			element.click();
+			fail--;
+		}
+	});
+	
+	if(fail > 0){
+		endGame("💥 DERROTA! 💥");
+	}
+	else{
+		if(document.querySelectorAll('.done').length == 10){
+			endGame("🎉 VITÓRIA! 🎉");
+		}
+	}	
 };
 
 function endGame(result){
