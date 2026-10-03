@@ -32,7 +32,10 @@ body {
 }
 
 .mid{
-	align-items: center; 
+	display: flex;
+	flex-direction: column; /* Stack items vertically on mobile */
+	justify-content: center; /* Centers items along the vertical axis */
+	align-items: center;    /* Centers items horizontally */
 }
 
 i{
