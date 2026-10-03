@@ -26,9 +26,13 @@ body {
     /** Set BG pattern and fallback color */
     background-color: #AAAAAA;
     background-image: url('/img/bg/tile.png');
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	display: grid;
 	place-items: center; /* Centers content vertically and horizontally */
+}
+
+.mid{
+	align-items: center; 
 }
 
 i{
